@@ -30,6 +30,14 @@ $listeService = getService();
             $erreur = "Login ou mot de passe incorrect !";
         }
     }
+     if (isset($_POST['action'])) {
+                    $action = $_POST['action'];
+                    if ($action == "ajoutEmploye") {
+                        extract($_POST);
+                        insertEmploye($nom, $prenom, $tel, $mail, $idService, $idRole, $login, $mdp); //important de suivre l'ordre car cela peut causer des erreurs betement
+                        header('refresh:5');
+                    }
+                }
     if (isset($_GET['deconnexion'])) {
         $_SESSION = [];
         session_destroy();
@@ -125,7 +133,7 @@ $listeService = getService();
                     if ($action == "ajoutEmploye") {
                         extract($_POST);
                         insertEmploye($nom, $prenom, $tel, $mail, $idService, $idRole, $login, $mdp); //important de suivre l'ordre car cela peut causer des erreurs betement
-                        header('refresh:0');
+                        header('refresh:5');
                     }
                 }
 
@@ -191,13 +199,13 @@ $listeService = getService();
                     if ($action == "accept") {
                         extract($_POST);
                         acceptConge($id);
-                        header('refresh:0');
+                        header('refresh:6');
                     }
                     if ($action == "refus") {
                         extract($_POST);
                         refus($id);
-                        $val = $_POST['validateur'];
-                        header('refresh:0');
+                       // $val = $_POST['validateur'];
+                        header('refresh:6');
                     }
                     if ($action == "modifConge") {
                         extract($_POST);

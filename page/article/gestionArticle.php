@@ -92,7 +92,7 @@
                         <button onclick="remplirFormulaire(<?= $c['idArticle'] ?>, '<?= addslashes($c['nomArticle']) ?>', '<?= $c['prix'] ?>', '<?= $c['qteStock'] ?>')" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
                             Ajouter une entrée
                         </button>
-                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal fade" data-bs-backdrop="false" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">

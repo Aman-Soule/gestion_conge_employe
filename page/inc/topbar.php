@@ -4,7 +4,7 @@
 <!-- Main Content -->
 <div id="content">
 <!-- Topbar -->
-<nav style="background: linear-gradient(135deg,rgb(14, 25, 55),rgb(23, 12, 49));" class="navbar navbar-expand navbar-light topbar mb-4 static-top shadow" <?= isset($_SESSION['employe']) ? "" : "hidden"  ?>>
+<nav style="background: var(--darker-bg);" class="navbar navbar-expand navbar-light topbar mb-4 static-top shadow" <?= isset($_SESSION['employe']) ? "" : "hidden"  ?>>
 
 <!-- Sidebar Toggle (Topbar) -->
 <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
@@ -182,7 +182,7 @@
         <!-- Dropdown - User Information -->
         <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
             aria-labelledby="userDropdown">
-            <a class="dropdown-item" href="#">
+            <a class="dropdown-item" href="?page=accueil">
                 <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                 Profile
             </a>

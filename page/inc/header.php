@@ -17,6 +17,14 @@
         }
 </script>
 <style>
+      :root {
+        --dark-bg: #1a1a2e;
+        --darker-bg: #16213e;
+        --accent-color: #0f3460;
+        --highlight: #e94560;
+        --text-light: #f1f1f1;
+        --text-gray: #b8b8b8;
+    }
     .status{
          display: flex;
             align-items: center;
@@ -92,10 +100,12 @@
     <script src="http://localhost/Projet_classe/public/js/bootstrap.bundle.js"></script>
     <script src="http://localhost/Projet_classe/public/js/bootstrap.esm.js"></script>
     <script src="http://localhost/Projet_classe/public/js/bootstrap.js.map"></script>
-
+    <!-- particles.js -->
+    <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+    <script src="http://localhost/Projet_classe/page/particles.js"></script>
     <!-- public2 -->
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-        
+     
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
         <!-- Google fonts-->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />

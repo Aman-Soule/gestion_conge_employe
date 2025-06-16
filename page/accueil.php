@@ -12,14 +12,12 @@
     transition: transform 0.3s ease-in-out;
 }
 
-/* h1:hover {
-    transform: scale(1.05);
-} */
+
 
     .card {
     background: white;
     max-width: 400px;
-    /* margin: auto; */
+   
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
@@ -45,7 +43,7 @@
 }
 
 .card-body div {
-    /* margin-bottom: 15px; */
+    
     padding: 10px;
     background: #f4f4f4;
     border-radius: 5px;

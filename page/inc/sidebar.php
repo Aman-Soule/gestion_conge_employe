@@ -2,7 +2,7 @@
  <?php
     require_once("index.php");
     ?>
- <ul  class="navbar-nav sidebar sidebar-dark accordion" style="background: linear-gradient(135deg,rgb(14, 25, 55),rgb(23, 12, 49));" id="accordionSidebar" <?= isset($_SESSION['employe']) && $_SESSION['employe']['login'] ? "" : "hidden"  ?>>
+ <ul  class="navbar-nav sidebar sidebar-dark accordion" style="background: var(--darker-bg);" id="accordionSidebar" <?= isset($_SESSION['employe']) && $_SESSION['employe']['login'] ? "" : "hidden"  ?>>
 
      <!-- Sidebar - Brand -->
      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
