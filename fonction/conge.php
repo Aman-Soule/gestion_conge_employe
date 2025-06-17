@@ -113,4 +113,11 @@ function etatConge($etatConge){
         $st->bindParam(':id',$id);
         return $st->execute();
     }
+     function supprimerConge($idC)
+    {
+        $connect = getBDconnexion();
+        $st = $connect->prepare("DELETE FROM conge WHERE idConge =:idC");
+        $st->bindParam(':idC', $idC);
+        return $st->execute();
+    }
 ?>

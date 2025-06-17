@@ -17,6 +17,7 @@ $i = 0;
                             <h3 class="text-center strong text-white">Congé N* <?= $i ?></h3>
                         </div>
                         <div class="card-body">
+                            
                             <h5 class="card-title">Congé du <?= htmlspecialchars($conge['date_debut']) ?> au <?= htmlspecialchars($conge['date_fin']) ?></h5>
                             <h4>Durée : <?= calculerDureeConge($conge['date_debut'], $conge['date_fin']) ?> jour(s)</h4>
 
@@ -35,7 +36,7 @@ $i = 0;
                             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                 Modifier
                             </button>
-                            <button class="btn btn-danger" name="action" value="supprimerConger">Supprimer</button>
+                            <button class="btn btn-danger" name="action" value="supprimerConge">Supprimer</button>
                         </div>
                     </div>
                 </div>

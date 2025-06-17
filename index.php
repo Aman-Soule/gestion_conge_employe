@@ -11,6 +11,7 @@ require_once("fonction/service.php");
 require_once("fonction/role.php");
 require_once("fonction/conge.php");
 require_once("fonction/passerCommande.php");
+require_once("page/message.php");
 $listeRole = getRole();
 $listeService = getService();
 ?>
@@ -21,13 +22,16 @@ $listeService = getService();
         $empConnect = findByLogin($login, $mdp);
 
         if ($empConnect) {
+            
             $_SESSION['employe'] = $empConnect;
             $employeID = $_SERVER['employe'];
+            echo $connect_reussi;
+            header('refresh:3');
             header("location:http://localhost/Projet_Classe/");
-
+            
             $_SESSION['nomEmploye'] = $empConnect['nomEmploye'];
         } else {
-            $erreur = "Login ou mot de passe incorrect !";
+            echo $connect_echoue;
         }
     }
      if (isset($_POST['action'])) {
