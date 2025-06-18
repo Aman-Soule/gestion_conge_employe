@@ -1,4 +1,5 @@
 <?php
+
 require_once("connectBD.php");
 
 function findByLogin($login, $mdp)
@@ -38,7 +39,7 @@ function insertEmploye($nom, $prenom, $tel, $mail, $idService, $idRole, $login, 
                             <h5 class="modal-title" id="loginExistModalLabel">Login existant</h5>
                             <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
-                        <div class="modal-body">
+                        <div class="modal-body text-center">
                             Ce login est déjà utilisé. Veuillez en choisir un autre.
                         </div>
                         <div class="modal-footer">
@@ -66,6 +67,30 @@ function insertEmploye($nom, $prenom, $tel, $mail, $idService, $idRole, $login, 
     $st->bindParam(':mdp', $hashedPassword);
     $st->bindParam(':idService', $idService);
     $st->bindParam(':idRole', $idRole);
+      echo '
+            
+            <div class="modal fade" id="loginExistModal" tabindex="-1" aria-labelledby="loginExistModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header bg-primary text-white">
+                            <h5 class="modal-title" id="loginExistModalLabel">Bienvenu a OPTIMANAGER</h5>
+                            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body text-center">
+                            Inscription Reussi !
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Fermer</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                var myModal = new bootstrap.Modal(document.getElementById("loginExistModal"));
+                myModal.show();
+            });
+            </script>';
     return $st->execute();
 }
 

@@ -14,7 +14,7 @@
 
 
 
-    .card {
+ .card {
     background: white;
     max-width: 400px;
    

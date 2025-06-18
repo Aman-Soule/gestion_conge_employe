@@ -75,6 +75,46 @@
 .section a:hover:before{
 	width: 100%;
 }
+/* style des card */
+.card {
+    background: white;
+    max-width: 400px;
+   
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+}
+
+.card:hover {
+    transform: scale(1.02);
+}
+
+.card-header {
+    background: linear-gradient(135deg, #2E3A8F, #854BBA);
+    color: white;
+    padding: 15px;
+    border-radius: 10px 10px 0 0;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.card-body div {
+    
+    padding: 10px;
+    background: #f4f4f4;
+    border-radius: 5px;
+}
+
+h6 {
+    font-weight: bold;
+    color: #333;
+}
 </style>
 
     <meta charset="utf-8">

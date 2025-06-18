@@ -34,7 +34,7 @@ function etatConge($etatConge){
         $etat = "En attente";
         return $etat;
     }elseif($etatConge == 1){
-        $etat = "Accepter";
+        $etat = "Accepté";
         return $etat;
     }
     else{

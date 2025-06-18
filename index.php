@@ -170,7 +170,8 @@ $listeService = getService();
                         extract($_POST);
                         $dateSoumission = date('Y-m-d');
                         insertConge($motif, $dateD, $dateF, $idE, $dateSoumission);
-                        header('refresh:0');
+                        echo $conge_ajoute; //message modal pour comfirmer l'ajout du congé
+                        header('refresh:3');
                     }
                 }
 

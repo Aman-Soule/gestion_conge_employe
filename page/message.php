@@ -1,5 +1,31 @@
 <!-- Ce fichier je l'ai créer pour stocker les boites modal dans des variables, pour rendre le fichier index plus lisible -->
 <?php
+    
+    $conge_ajoute = '
+        <div class="modal fade" id="loginExistModal" tabindex="-1" aria-labelledby="loginExistModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header bg-primary text-white">
+                            <h5 class="modal-title" id="loginExistModalLabel">Congé ajouté avec succés</h5>
+                            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body text-center">
+                            Votre de demande congé a bien été ajouté !
+                            Vous pouvez la voir au niveau de la liste des congés.
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                var myModal = new bootstrap.Modal(document.getElementById("loginExistModal"));
+                myModal.show();
+            });
+            </script>
+    ';
 
     $connect_reussi = '
         <div class="modal fade" id="loginExistModal" tabindex="-1" aria-labelledby="loginExistModalLabel" aria-hidden="true">
@@ -50,5 +76,6 @@
                 });
                 </script>
             ';
+       
 
 ?>
