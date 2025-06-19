@@ -1,12 +1,11 @@
-
 <h1>Liste des employés: </h1>
 <div class="row mb-2">
     <button class="btn btn-primary " id="btnAdd" onclick="ajoutEmploye()">Ajouter un Employe</button>
 </div>
 <div class="row mt-4 container" id="formAjout" hidden>
-    
-        <h3  class="text-center">Ajout Employé</h3>
-    <form action=""  method="POST">
+
+    <h3 class="text-center">Ajout Employé</h3>
+    <form action="" method="POST">
         <div class="card-body">
             <div class="form-group">
                 <label for="" class="font-weight-bold">Nom</label>
@@ -74,22 +73,34 @@
             <th>Telephone</th>
             <th>E-mail</th>
             <th>Service</th>
+            <th>Action</th>
         </tr>
     </thead>
     <tbody>
-        <?php foreach ($listeEmployes as $key => $c):?>
+        <?php foreach ($listeEmployes as $key => $c): ?>
             <tr>
                 <td><?= $key + 1 ?></td>
                 <td><?= $c['nomEmploye'] ?></td>
                 <td><?= $c['prenomEmploye'] ?></td>
                 <td><?= $c['telEmploye'] ?></td>
                 <td><?= $c['emailEmploye'] ?></td>
-                
+
                 <td><?= $c['nomService'] ?></td>
-               
+                <td>
+                    <div class="container" style="display: flex;">
+                        <div>
+                            <button class="btn btn-sm mr-2 btn-primary" id="liveAlertBtn" name="action" value="accept">Modifier</button>
+                        </div>
+                        <div>
+                            <button class="btn btn-sm btn-danger" name="action" value="refus">Supprimer</button>
+                        </div>
+                    </div>
+
+                </td>
+
             </tr>
 
-        <?php 
+        <?php
         endforeach ?>
     </tbody>
 </table>

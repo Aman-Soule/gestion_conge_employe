@@ -6,7 +6,8 @@
             padding: 50px 0 20px;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.3);
-            margin-top: 50px;
+            margin-top: 150px;
+            
         }
 
         .footer-container {

@@ -26,16 +26,24 @@
         </tr>
     </thead>
     <tbody>
-        <?php foreach ($listeService as $key => $s):?>
+        <?php foreach ($listeService as $key => $s): ?>
             <tr>
                 <td><?= $key + 1 ?></td>
                 <td><?= $s['nomService'] ?></td>
                 <td>
-                    
+                    <div class="container" style="display: flex;">
+                        <div>
+                            <button class="btn btn-sm mr-2 btn-primary" id="liveAlertBtn" name="action" value="accept">Modifier</button>
+                        </div>
+                        <div>
+                            <button class="btn btn-sm btn-danger" name="action" value="refus">Supprimer</button>
+                        </div>
+                    </div>
+
                 </td>
             </tr>
 
-        <?php 
+        <?php
         endforeach ?>
     </tbody>
 </table>
