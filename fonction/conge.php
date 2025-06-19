@@ -152,5 +152,27 @@ function supprimerConge($idC)
     $connect = getBDconnexion();
     $st = $connect->prepare("DELETE FROM conge WHERE idConge =:idC");
     $st->bindParam(':idC', $idC);
+    echo ' <div class="modal fade" id="loginExistModal" tabindex="-1" aria-labelledby="loginExistModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header bg-danger text-white">
+                            <h5 class="modal-title" id="loginExistModalLabel">Suppression de la demande</h5>
+                            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body text-center">
+                            Votre demande de congé a été supprimé !
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                var myModal = new bootstrap.Modal(document.getElementById("loginExistModal"));
+                myModal.show();
+            });
+            </script>';
     return $st->execute();
 }

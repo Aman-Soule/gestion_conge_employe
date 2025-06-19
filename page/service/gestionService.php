@@ -31,14 +31,18 @@
                 <td><?= $key + 1 ?></td>
                 <td><?= $s['nomService'] ?></td>
                 <td>
-                    <div class="container" style="display: flex;">
-                        <div>
-                            <button class="btn btn-sm mr-2 btn-primary" id="liveAlertBtn" name="action" value="accept">Modifier</button>
+                    <form action="" method="post">
+                        <div class="container" style="display: flex;">
+                            <div>
+                                <button class="btn btn-sm mr-2 btn-primary" id="liveAlertBtn" name="action" value="accept">Modifier</button>
+                            </div>
+                            <input type="text" name="idSS" value="<?= $s['idService'] ?>" hidden>
+                            <div>
+                                <button class="btn btn-sm btn-danger" name="action" value="supprimerService">Supprimer</button>
+                            </div>
                         </div>
-                        <div>
-                            <button class="btn btn-sm btn-danger" name="action" value="refus">Supprimer</button>
-                        </div>
-                    </div>
+                    </form>
+
 
                 </td>
             </tr>

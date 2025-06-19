@@ -145,7 +145,12 @@ $listeService = getService();
                     if ($action == "ajoutEmploye") {
                         extract($_POST);
                         insertEmploye($nom, $prenom, $tel, $mail, $idService, $idRole, $login, $mdp); //important de suivre l'ordre car cela peut causer des erreurs betement
-                        header('refresh:5');
+                        header('refresh:4');
+                    }
+                    if($action == "supprimerEmploye"){
+                        extract($_POST);
+                        supprimerEmploye($idES);
+                        header('refresh:2');
                     }
                 }
 
@@ -161,6 +166,11 @@ $listeService = getService();
                         extract($_POST);
                         insertService($nomService);
                         header('refresh:0');
+                    }
+                    if ($action == "supprimerService"){
+                        extract($_POST);
+                        supprimerService($idSS);
+                        header('refresh:3');
                     }
                 }
 
@@ -199,6 +209,14 @@ $listeService = getService();
                 //         header('refresh:0');
                 //     }
                 // }
+                if (isset($_POST['action'])){
+                    $action = $_POST['action'];
+                    if ($action == "supprimerConge") {
+                        extract($_POST);
+                        supprimerConge($idCS);
+                        header('refresh:3');
+                    }
+                }
 
                 break;
             case "listeConge":
@@ -212,13 +230,13 @@ $listeService = getService();
                     if ($action == "accept") {
                         extract($_POST);
                         acceptConge($id);
-                        header('refresh:6');
+                        header('refresh:3');
                     }
                     if ($action == "refus") {
                         extract($_POST);
                         refus($id);
                        // $val = $_POST['validateur'];
-                        header('refresh:6');
+                        header('refresh:3');
                     }
                     if ($action == "modifConge") {
                         extract($_POST);

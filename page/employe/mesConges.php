@@ -17,7 +17,7 @@ $i = 0;
                             <h3 class="text-center strong text-white">Congé N* <?= $i ?></h3>
                         </div>
                         <div class="card-body">
-                            
+
                             <h5 class="card-title">Congé du <?= htmlspecialchars($conge['date_debut']) ?> au <?= htmlspecialchars($conge['date_fin']) ?></h5>
                             <h4>Durée : <?= calculerDureeConge($conge['date_debut'], $conge['date_fin']) ?> jour(s)</h4>
 
@@ -33,10 +33,14 @@ $i = 0;
                         </div>
                         <div class="card-footer">
                             <!-- Boutton pour mofifier le conge -->
-                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                Modifier
-                            </button>
-                            <button class="btn btn-danger" name="action" value="supprimerConge">Supprimer</button>
+                            <form action="" method="post">
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                    Modifier
+                                </button>
+                                <input type="text" name="idCS" value="<?= $conge['idConge'] ?>" hidden>
+                                <button class="btn btn-danger" name="action" value="supprimerConge">Supprimer</button>
+                            </form>
+
                         </div>
                     </div>
                 </div>
@@ -57,7 +61,7 @@ $i = 0;
                                         <label for="">Date de debut</label>
                                         <input type="date" value="<?= $conge['date_debut'] ?>">
                                     </div>
-                                     <div class="form-group">
+                                    <div class="form-group">
                                         <label for="">Date de fin</label>
                                         <input type="date" value="<?= $conge['date_fin'] ?>">
                                     </div>

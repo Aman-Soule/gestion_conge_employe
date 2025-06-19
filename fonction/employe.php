@@ -79,8 +79,37 @@ function insertEmploye($nom, $prenom, $tel, $mail, $idService, $idRole, $login, 
                         <div class="modal-body text-center">
                             Inscription Reussi !
                         </div>
-                        <div class="modal-footer">
+                        <div class="modal-footer primary">
                             <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Fermer</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                var myModal = new bootstrap.Modal(document.getElementById("loginExistModal"));
+                myModal.show();
+            });
+            </script>';
+    return $st->execute();
+}
+
+function supprimerEmploye($idE){
+    $connect = getBDconnexion();
+    $st = $connect->prepare("DELETE FROM employe WHERE idEmploye =:idE");
+    $st->bindParam(':idE', $idE);
+    echo ' <div class="modal fade" id="loginExistModal" tabindex="-1" aria-labelledby="loginExistModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header bg-danger text-white">
+                            <h5 class="modal-title" id="loginExistModalLabel">Suppression Employé</h5>
+                            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body text-center">
+                            Employé supprimé !
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
                         </div>
                     </div>
                 </div>
@@ -104,3 +133,4 @@ function insertEmploye($nom, $prenom, $tel, $mail, $idService, $idRole, $login, 
 
 //     return $st->execute();
 // }
+?>
