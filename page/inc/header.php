@@ -9,7 +9,7 @@
             document.getElementById('nomArticle').value = nomArticle;
             document.getElementById('quantiteDisponible').innerHTML = quantiteDisponible;
         }
-        function remplirFormulaire2(idConge, motif, date_debut, date_fin) {
+          function remplirConge(idConge, motif, date_debut, date_fin) {
             document.getElementById('idConge').value = idConge;
             document.getElementById('motif').value = motif;
             document.getElementById('date_debut').value = date_debut;

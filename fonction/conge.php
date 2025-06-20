@@ -135,11 +135,10 @@ function refus($id)
 
 
 
-function modifierConge($id, $motif, $dateD, $dateF)
+function modifierConge($id,$dateD, $dateF)
 {
     $connect = getBDconnexion();
-    $st = $connect->prepare("UPDATE conge SET motif =:motif, date_debut =:dateD, date_fin=:dateF  WHERE idConge =:id");
-    $st->bindParam(':motif', $motif);
+    $st = $connect->prepare("UPDATE conge SET  date_debut =:dateD, date_fin=:dateF  WHERE idConge =:id");
     $st->bindParam(':dateD', $dateD);
     $st->bindParam(':dateF', $dateF);
     $st->bindParam(':id', $id);

@@ -1,6 +1,9 @@
 <?php
 $i = 0;
 ?>
+<script>
+  
+</script>
 <h1 class="text-center">Mes congés</h1>
 
 <div class="container mt-5">
@@ -34,7 +37,8 @@ $i = 0;
                         <div class="card-footer">
                             <!-- Boutton pour mofifier le conge -->
                             <form action="" method="post">
-                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                <!-- recuperer les informations pour les afficher au niveau de la boite modal (par defaut il prend toujours le premier) -->
+                                <button onclick="remplirConge(<?= $conge['idConge'] ?>, '<?= addslashes($conge['motif']) ?>', '<?= $conge['date_debut'] ?>', '<?= $conge['date_fin'] ?>')" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                     Modifier
                                 </button>
                                 <input type="text" name="idCS" value="<?= $conge['idConge'] ?>" hidden>
@@ -47,7 +51,6 @@ $i = 0;
 
 
 
-                <!-- Modal -->
                 <div class="modal fade" data-bs-backdrop="false" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
@@ -57,20 +60,33 @@ $i = 0;
                             </div>
                             <div class="modal-body">
                                 <form action="" method="post">
+                                    <label for=""><strong>ID</strong></label>
+                                    <input type="text" id="idConge" name="idConge" readonly>
+
+                                    
                                     <div class="form-group">
-                                        <label for="">Date de debut</label>
-                                        <input type="date" value="<?= $conge['date_debut'] ?>">
+                                        <label for=""><strong>Date de debut</strong></label>
+                                        <input type="date" id="date_debut" name="dateD">
+                                    </div>
+                                     
+                                    <div class="form-group">
+                                        <label for=""><strong>Date de fin</strong></label>
+                                        <input type="date" id="date_fin" name="dateF">
+                                        <!-- <input type="date" value="<?= $conge['date_fin'] ?>"> -->
+
                                     </div>
                                     <div class="form-group">
-                                        <label for="">Date de fin</label>
-                                        <input type="date" value="<?= $conge['date_fin'] ?>">
+                                        <label for=""><strong>Motif</strong></label>
+                                        <textarea name="motif" id="motif" readonly></textarea>
+                                    </div>
+                                   
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                                        <button type="submit" name="action" value="modifConge" class="btn btn-primary">Enregistrer</button>
                                     </div>
                                 </form>
                             </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
-                                <button type="button" class="btn btn-primary">Enregistrer</button>
-                            </div>
+
                         </div>
                     </div>
                 </div>

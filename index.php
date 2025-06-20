@@ -216,6 +216,11 @@ $listeService = getService();
                         supprimerConge($idCS);
                         header('refresh:3');
                     }
+                    if ($action == "modifConge") {
+                        extract($_POST);
+                        modifierConge($idConge, $dateD, $dateF, $motif);
+                        header('refresh:3');
+                    }
                 }
 
                 break;
@@ -240,7 +245,8 @@ $listeService = getService();
                     }
                     if ($action == "modifConge") {
                         extract($_POST);
-                        modifierConge($id, $motif, $dateD, $dateF);
+                        modifierConge($id, $dateD, $dateF);
+                        header('refresh:0');
                     }
                 }
                 break;
