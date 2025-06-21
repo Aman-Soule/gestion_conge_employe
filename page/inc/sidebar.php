@@ -2,7 +2,7 @@
  <?php
     require_once("index.php");
     ?>
- <ul  class="navbar-nav sidebar sidebar-dark accordion" style="background: var(--darker-bg);" id="accordionSidebar" <?= isset($_SESSION['employe']) && $_SESSION['employe']['login'] ? "" : "hidden"  ?>>
+ <ul class="navbar-nav sidebar sidebar-dark accordion" style="background: var(--darker-bg);" id="accordionSidebar" <?= isset($_SESSION['employe']) && $_SESSION['employe']['login'] ? "" : "hidden"  ?>>
 
      <!-- Sidebar - Brand -->
      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
@@ -33,7 +33,20 @@
 
      <!-- Heading -->
 
+     <li class="nav-item" <?= isset($_SESSION['employe']) && $_SESSION['employe']['nomRole'] == "responsable" ? "" : "hidden"  ?>>
+         <a class="nav-link" href="?page=listeConge">
+             <i class="fas fa-fw fa-table"></i>
+             <span>Liste des congés</span></a>
+     </li>
+     <li class="nav-item" <?= isset($_SESSION['employe']) && $_SESSION['employe']['nomRole'] == "stock" ? "" : "hidden"  ?>>
+         <a class="nav-link" href="?page=demandeConge">
+             <!-- <i class="fas fa-fw fa-table"></i> -->
+             <span>Demande de Congé</span></a>
+         <a class="nav-link" href="?page=mesConges">
+             <!-- <i class="fas fa-fw fa-table"></i> -->
+             <span>Mes congés</span></a>
 
+     </li>
      <!-- Nav Item - Pages Collapse Menu -->
      <li class="nav-item">
          <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
@@ -50,7 +63,7 @@
      </li>
 
      <!-- Nav Item - Utilities Collapse Menu -->
-     <li class="nav-item" >
+     <li class="nav-item">
          <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
              aria-expanded="true" aria-controls="collapseUtilities">
              <!-- <i class="fas fa-fw fa-shopping-basket"></i> -->
@@ -87,7 +100,7 @@
              </div>
          </div>
      </li>
-     <li class="nav-item">
+     <li class="nav-item" hidden>
          <a class="nav-link collapsed" href="?page=commande">
              <span>Commande</span>
          </a>
@@ -101,21 +114,9 @@
      </li>
 
      <!-- Nav Item - Tables -->
-     <li class="nav-item" <?= isset($_SESSION['employe']) && $_SESSION['employe']['nomRole'] == "stock" ? "" : "hidden"  ?>>
-         <a class="nav-link" href="?page=demandeConge">
-             <!-- <i class="fas fa-fw fa-table"></i> -->
-             <span>Demande de Congé</span></a>
-         <a class="nav-link" href="?page=mesConges">
-             <!-- <i class="fas fa-fw fa-table"></i> -->
-             <span>Mes congés</span></a>
+     
 
-     </li>
 
-     <li class="nav-item" <?= isset($_SESSION['employe']) && $_SESSION['employe']['nomRole'] == "responsable" ? "" : "hidden"  ?>>
-         <a class="nav-link" href="?page=listeConge">
-             <i class="fas fa-fw fa-table"></i>
-             <span>Liste des congés</span></a>
-     </li>
 
      <!-- Divider -->
      <hr class="sidebar-divider d-none d-md-block">

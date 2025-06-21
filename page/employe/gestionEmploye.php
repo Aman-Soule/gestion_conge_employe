@@ -1,6 +1,6 @@
 <h1>Liste des employés: </h1>
-<div class="row mb-2">
-    <button class="btn btn-primary " id="btnAdd" onclick="ajoutEmploye()">Ajouter un Employe</button>
+<div class="row mb-1">
+    <button class="btn btn-primary" id="btnAdd" onclick="ajoutEmploye()">Ajouter un Employe</button>
 </div>
 <div class="row mt-4 container" id="formAjout" hidden>
 
@@ -89,8 +89,67 @@
                 <td>
                     <form action="" method="post">
                         <div class="container" style="display: flex;">
-                            <div>
-                                <button class="btn btn-sm mr-2 btn-primary">Modifier</button>
+                            <button onclick="remplirEmploye(<?= $c['idEmploye'] ?>, '<?= addslashes($c['nomEmploye']) ?>', '<?= $c['prenomEmploye'] ?>', '<?= $c['telEmploye'] ?>', '<?= $c['emailEmploye'] ?>')" type="button" class="btn btn-primary btn-sm mr-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                Modifier
+                            </button>
+                            <div class="modal fade" data-bs-backdrop="false" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h1 class="modal-title fs-5" id="exampleModalLabel">Modifier les informations de l'employé</h1>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form action="" method="post">
+                                                <div class="form-group">
+                                                    <label for="">ID :</label>
+                                                    <input type="text" id="idEmploye" name="idE" readonly>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="">Nom :</label>
+                                                    <input type="text" id="nomEmploye" name="nomE">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="">Prenom :</label>
+                                                    <input type="text" id="prenomEmploye" name="prenomE">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="">Tel :</label>
+                                                    <input type="text" id="telEmploye" name="telE">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="">E-mail :</label>
+                                                    <input type="mail" id="emailEmploye" name="emailE">
+                                                </div>
+                                                <div class="form-group">
+                                                    <select name="roleE" id="" class="form-control">
+                                                        <?php
+                                                        foreach ($listeRole as $r) { ?>
+                                                            <option value="<?= $r['idRole'] ?>"> <?= $r['nomRole'] ?> </option>
+                                                        <?php
+                                                        }
+                                                        ?>
+                                                    </select>
+                                                </div>
+                                                <div class="form-group">
+                                                    <select name="serviceE" id="" class="form-control">
+                                                        <?php
+                                                        foreach ($listeService as $s) { ?>
+                                                            <option value="<?= $s['idService'] ?>"> <?= $s['nomService'] ?> </option>
+                                                        <?php
+                                                        }
+                                                        ?>
+                                                    </select>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                                                    <button type="submit" name="action" value="modifEmploye" class="btn btn-primary">Enregistrer</button>
+                                                </div>
+                                            </form>
+                                        </div>
+
+                                    </div>
+                                </div>
                             </div>
                             <input type="text" name="idES" value="<?= $c['idEmploye'] ?>" hidden>
                             <div>

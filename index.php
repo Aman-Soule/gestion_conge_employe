@@ -152,6 +152,11 @@ $listeService = getService();
                         supprimerEmploye($idES);
                         header('refresh:2');
                     }
+                    if($action == "modifEmploye"){
+                        extract($_POST);
+                        modiferEmploye($idE, $nomE, $prenomE, $telE, $emailE, $roleE, $serviceE);
+                        header('refresh:0');
+                    }
                 }
 
                 break;
@@ -219,7 +224,7 @@ $listeService = getService();
                     if ($action == "modifConge") {
                         extract($_POST);
                         modifierConge($idConge, $dateD, $dateF, $motif);
-                        header('refresh:3');
+                        header('refresh:0');
                     }
                 }
 
@@ -235,13 +240,13 @@ $listeService = getService();
                     if ($action == "accept") {
                         extract($_POST);
                         acceptConge($id);
-                        header('refresh:3');
+                        header('refresh:1');
                     }
                     if ($action == "refus") {
                         extract($_POST);
                         refus($id);
                        // $val = $_POST['validateur'];
-                        header('refresh:3');
+                        header('refresh:1');
                     }
                     if ($action == "modifConge") {
                         extract($_POST);

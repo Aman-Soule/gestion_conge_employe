@@ -24,6 +24,9 @@ function insertConge($motif, $dateD, $dateF, $idE, $dateSoumission)
                         <div class="modal-body text-center">
                             Veuillez remplir tout les Champs de la demande !
                         </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fermer</button>
+                        </div>
                     </div>
                 </div>
             </div>

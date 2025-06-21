@@ -2,9 +2,39 @@
 
 require_once("connectBD.php");
 
+function modiferEmploye($idE, $nomE, $prenomE, $telE, $emailE, $roleE, $serviceE)
+{
+    $connect = getBDconnexion();
+    $st = $connect->prepare("UPDATE employe SET nomEmploye =:nomE, prenomEmploye =:prenomE, telEmploye=:telE, emailEmploye=:emailE, idRoleF=:roleE, idServiceF=:serviceE  WHERE idEmploye =:idE");
+    $st->bindParam(':nomE', $nomE);
+    $st->bindParam('prenomE', $prenomE);
+    $st->bindParam(':telE', $telE);
+    $st->bindParam(':emailE', $emailE);
+    $st->bindParam(':roleE', $roleE);
+    $st->bindParam(':serviceE', $serviceE);
+    $st->bindParam(':idE', $idE);
+    return $st->execute();
+}
+// function findByLogin($login, $mdp)
+// {
+//     $connect = getBDconnexion();
+//     $st = $connect->prepare("SELECT * FROM employe WHERE login = :log");
+//     $st->bindParam(':log', $login);
+//     $st->execute();
+
+//     $user = $st->fetch(PDO::FETCH_ASSOC);
+//     if ($user && password_verify($mdp, $user['password'])) {
+//         return $user;
+//     } else {
+       
+//         return false;
+//     }
+// }
+
 function findByLogin($login, $mdp)
 {
     $connect = getBDconnexion();
+
     $st = $connect->prepare("SELECT * FROM employe, role  WHERE login=:log and password=:pass and idRoleF=idRole");
     $st->bindParam(':log', $login);
     $st->bindParam(':pass', $mdp); //hasher le mot de passe => $st->bindParam(':pass', sha1($mdp));
@@ -58,16 +88,16 @@ function insertEmploye($nom, $prenom, $tel, $mail, $idService, $idRole, $login, 
     }
 
     $st = $connect->prepare("INSERT INTO employe(nomEmploye, prenomEmploye, telEmploye, emailEmploye,login,password, idServiceF,idRoleF) VALUES(:nom,:prenom,:tel,:mail,:log,:mdp,:idService,:idRole)");
-    $hashedPassword = password_hash($mdp, PASSWORD_DEFAULT); //hasher le mot de passe lors de l'insertion d'un employe
+    // $hashedPassword = password_hash($mdp, PASSWORD_DEFAULT); //hasher le mot de passe lors de l'insertion d'un employe
     $st->bindParam(':nom', $nom);
     $st->bindParam(':prenom', $prenom);
     $st->bindParam(':tel', $tel);
     $st->bindParam(':mail', $mail);
     $st->bindParam(':log', $login);
-    $st->bindParam(':mdp', $hashedPassword);
+    $st->bindParam(':mdp', $mdp);
     $st->bindParam(':idService', $idService);
     $st->bindParam(':idRole', $idRole);
-      echo '
+    echo '
             
             <div class="modal fade" id="loginExistModal" tabindex="-1" aria-labelledby="loginExistModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
@@ -94,7 +124,8 @@ function insertEmploye($nom, $prenom, $tel, $mail, $idService, $idRole, $login, 
     return $st->execute();
 }
 
-function supprimerEmploye($idE){
+function supprimerEmploye($idE)
+{
     $connect = getBDconnexion();
     $st = $connect->prepare("DELETE FROM employe WHERE idEmploye =:idE");
     $st->bindParam(':idE', $idE);
@@ -133,4 +164,3 @@ function supprimerEmploye($idE){
 
 //     return $st->execute();
 // }
-?>

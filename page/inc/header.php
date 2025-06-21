@@ -9,11 +9,18 @@
             document.getElementById('nomArticle').value = nomArticle;
             document.getElementById('quantiteDisponible').innerHTML = quantiteDisponible;
         }
-          function remplirConge(idConge, motif, date_debut, date_fin) {
+        function remplirConge(idConge, motif, date_debut, date_fin) {
             document.getElementById('idConge').value = idConge;
             document.getElementById('motif').value = motif;
             document.getElementById('date_debut').value = date_debut;
             document.getElementById('date_fin').value = date_fin;
+        }
+         function remplirEmploye(idEmploye, nomEmploye, prenomEmploye, telEmploye, emailEmploye) {
+            document.getElementById('idEmploye').value = idEmploye;
+            document.getElementById('nomEmploye').value = nomEmploye;
+            document.getElementById('prenomEmploye').value = prenomEmploye;
+            document.getElementById('telEmploye').value = telEmploye;
+             document.getElementById('emailEmploye').value = emailEmploye;
         }
 </script>
 <style>
