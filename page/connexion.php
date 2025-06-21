@@ -135,7 +135,7 @@
         </div>
     </div>
 
-    <div class="form-container">
+    <div class="form-container" hidden>
         <h2 class="form-title">Inscription</h2>
         <form action="" method="POST">
             <div class="">

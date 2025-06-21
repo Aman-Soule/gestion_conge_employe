@@ -15,7 +15,7 @@ function modiferEmploye($idE, $nomE, $prenomE, $telE, $emailE, $roleE, $serviceE
     $st->bindParam(':idE', $idE);
     return $st->execute();
 }
-// function findByLogin($login, $mdp)
+// function findByLogin($login,$mdp)
 // {
 //     $connect = getBDconnexion();
 //     $st = $connect->prepare("SELECT * FROM employe WHERE login = :log");

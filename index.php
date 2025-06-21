@@ -144,7 +144,7 @@ $listeService = getService();
                     $action = $_POST['action'];
                     if ($action == "ajoutEmploye") {
                         extract($_POST);
-                        insertEmploye($nom, $prenom, $tel, $mail, $idService, $idRole, $login, $mdp); //important de suivre l'ordre car cela peut causer des erreurs betement
+                        insertEmploye($nom, $prenom, $tel, $mail, $idService, $idRole, $login, $mdp); //important de suivre l'ordre car cela peut causer des erreur betement
                         header('refresh:4');
                     }
                     if($action == "supprimerEmploye"){

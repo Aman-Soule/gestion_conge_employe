@@ -29,6 +29,7 @@
     </div>
 </div>
 <div> --> 
+    <!-- <h2></h2> -->
 <h2 class="welcome-title text-center">Bienvenue sur votre compte <?= htmlentities($_SESSION['employe']['nomEmploye']) . " " . htmlentities($_SESSION['employe']['prenomEmploye']) ?></h2>
 
 <div class="employee-dashboard">

@@ -12,7 +12,7 @@ function getConge()
 
 function insertConge($motif, $dateD, $dateF, $idE, $dateSoumission)
 {
-    if (empty($motif) || empty($dateD) || empty($dateF) || empty($idE)) {
+    if (empty($motif) || empty($dateD) || empty($dateF) || empty($idE) || $dateD < date('Y-m-d') || $dateF < date('Y-m-d')) {
         
         echo ' <div class="modal fade" id="loginExistModal" tabindex="-1" aria-labelledby="loginExistModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
@@ -22,7 +22,7 @@ function insertConge($motif, $dateD, $dateF, $idE, $dateSoumission)
                             <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body text-center">
-                            Veuillez remplir tout les Champs de la demande !
+                            Date saisie INVALIDE !
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fermer</button>
